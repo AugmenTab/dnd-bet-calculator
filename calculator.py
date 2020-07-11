@@ -4,14 +4,16 @@ import math
 
 def calculateWinnings(odds, wager):
     w = math.floor(int((odds + 1) * wager))
+    print(w)
     e = str(w)
+    pp = gp = sp = '0'
+    cp = e[-1]
     if len(e) >= 4:
         pp = math.floor(w / 1000) or 0
-    else:
-        pp = '0'
-    cp = e[-1]
-    sp = e[-2]
-    gp = e[-3]
+    if len(e) >= 3:
+        gp = e[-3]
+    if len(e) >= 2:
+        sp = e[-2]
     winnings = [pp, gp, sp, cp]
     return winnings
 
