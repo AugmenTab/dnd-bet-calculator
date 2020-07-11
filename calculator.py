@@ -3,9 +3,8 @@
 import math
 
 def calculateWinnings(odds, wager):
-    w = math.floor(int((odds + 1) * wager))
-    print(w)
-    e = str(w)
+    w = odds * wager
+    e = str(int(w))
     pp = gp = sp = '0'
     cp = e[-1]
     if len(e) >= 4:
@@ -17,8 +16,19 @@ def calculateWinnings(odds, wager):
     winnings = [pp, gp, sp, cp]
     return winnings
 
+def handleOdds():
+    bets = int(input('How many bets on this ticket?\n'))
+    odds = 1
+    i = 1
+    while i <= bets:
+        e = eval(input('Bet ' + str(i) + '. What are the odds?\n'))
+        e += 1
+        odds *= e
+        i += 1
+    return odds
+
 def programStart():
-    odds = eval(input('What are the odds?\n'))
+    odds = handleOdds()
     ppWager = int(input('How many pp on the bet?\n'))
     gpWager = int(input('How many gp on the bet?\n'))
     spWager = int(input('How many sp on the bet?\n'))
