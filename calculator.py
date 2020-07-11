@@ -35,7 +35,16 @@ def programStart():
     cpWager = int(input('How many cp on the bet?\n'))
     wager = (ppWager * 1000) + (gpWager * 100) + (spWager * 10) + cpWager
     winnings = calculateWinnings(odds, wager)
-    print('Your potential winnings are ' + str(winnings[0]) + ' pp, ' + str(winnings[1]) + ' gp, ' + str(winnings[2]) + ' sp, ' + str(winnings[3]) + ' cp.')
+    print(winnings)
+    print('Your potential winnings are:')
+    if winnings[0] != 0:
+        print('   ' + str(winnings[0]) + ' pp')
+    if winnings[1] != 0:
+        print('   ' + str(winnings[1]) + ' gp')
+    if winnings[2] != 0:
+        print('   ' + str(winnings[2]) + ' sp')
+    if winnings[3] != 0:
+        print('   ' + str(winnings[3]) + ' cp')
 
 if __name__ == "__main__":
     programStart()
