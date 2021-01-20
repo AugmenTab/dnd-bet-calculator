@@ -2,7 +2,8 @@
 
 import math
 
-def calculateWinnings(odds, wager):
+
+def calculate_winnings(odds, wager):
     w = odds * wager
     e = str(int(w))
     pp = gp = sp = '0'
@@ -16,25 +17,27 @@ def calculateWinnings(odds, wager):
     winnings = [pp, gp, sp, cp]
     return winnings
 
-def handleOdds():
-    bets = int(input('How many bets on this ticket?\n'))
+
+def handle_odds():
+    bets = int(input('How many bets on this ticket?: '))
     odds = 1
     i = 1
     while i <= bets:
-        e = eval(input('Bet ' + str(i) + '. What are the odds?\n'))
+        e = eval(input('Bet ' + str(i) + '. What are the odds?: '))
         e += 1
         odds *= e
         i += 1
     return odds
 
-def programStart():
-    odds = handleOdds()
-    ppWager = int(input('How many pp on the bet?\n'))
-    gpWager = int(input('How many gp on the bet?\n'))
-    spWager = int(input('How many sp on the bet?\n'))
-    cpWager = int(input('How many cp on the bet?\n'))
-    wager = (ppWager * 1000) + (gpWager * 100) + (spWager * 10) + cpWager
-    winnings = calculateWinnings(odds, wager)
+
+def program_start():
+    odds = handle_odds()
+    pp_wager = int(input('How many pp on the bet?: '))
+    gp_wager = int(input('How many gp on the bet?: '))
+    sp_wager = int(input('How many sp on the bet?: '))
+    cp_wager = int(input('How many cp on the bet?: '))
+    wager = (pp_wager * 1000) + (gp_wager * 100) + (sp_wager * 10) + cp_wager
+    winnings = calculate_winnings(odds, wager)
     print(winnings)
     print('Your potential winnings are:')
     if winnings[0] != 0:
@@ -46,5 +49,6 @@ def programStart():
     if winnings[3] != 0:
         print('   ' + str(winnings[3]) + ' cp')
 
+
 if __name__ == "__main__":
-    programStart()
+    program_start()
