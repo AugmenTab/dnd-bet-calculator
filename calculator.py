@@ -3,6 +3,15 @@
 import math
 
 
+def print_winnings(winnings):
+    indent = '    '
+    denomination = ['pp', 'gp', 'sp', 'cp']
+    print('Your potential winnings are:')
+    for amount, denomination in zip(winnings, denomination):
+        if amount != 0:
+            print(indent + str(amount) + ' ' + denomination)
+
+
 def calculate_winnings(odds, wager):
     w = odds * wager
     e = str(int(w))
@@ -38,16 +47,7 @@ def program_start():
     cp_wager = int(input('How many cp on the bet?: '))
     wager = (pp_wager * 1000) + (gp_wager * 100) + (sp_wager * 10) + cp_wager
     winnings = calculate_winnings(odds, wager)
-    print(winnings)
-    print('Your potential winnings are:')
-    if winnings[0] != 0:
-        print('   ' + str(winnings[0]) + ' pp')
-    if winnings[1] != 0:
-        print('   ' + str(winnings[1]) + ' gp')
-    if winnings[2] != 0:
-        print('   ' + str(winnings[2]) + ' sp')
-    if winnings[3] != 0:
-        print('   ' + str(winnings[3]) + ' cp')
+    print_winnings(winnings)
 
 
 if __name__ == "__main__":
